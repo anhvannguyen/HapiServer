@@ -43,7 +43,7 @@ module.exports.create = function(request, reply) {
 }
 
 // Find user base on the parameter id
-module.exports.find = function(request, reply) {
+module.exports.show = function(request, reply) {
 	Developer.find({ where : { id : request.params.id } }).complete(function (err, developers) {
 		if (!!err || !developers)
 			reply(Boom.notFound('User ID does not exist'));
@@ -52,7 +52,7 @@ module.exports.find = function(request, reply) {
 }
 
 // Get all the users in the developer table or all based on search query
-module.exports.get = function(request, reply) {
+module.exports.list = function(request, reply) {
 	if (request.query) {
 		Developer.findAll({ where : request.query }).complete(function (err, developers) {
 			if (!!err || !developers)

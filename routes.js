@@ -5,7 +5,6 @@ var routes = [];
 
 // Create the routes for the api
 // Test route for route
-// # 'hostname/'
 routes.push({
 	method: 'GET',
 	path: '/',
@@ -20,12 +19,11 @@ routes.push({
 // Routes for the users
 
 // List all the users in the developers table or by search query
-// # 'hostname/developers'
 routes.push({
 	method: 'GET',
 	path: '/developers',
 	config : {
-		handler: Developers.get
+		handler: Developers.list
 		}		
 });
 
@@ -35,7 +33,7 @@ routes.push({
 	method: 'GET',
 	path: '/developers/{id}',
 	config : {
-		handler: Developers.find,
+		handler: Developers.show,
 		validate: {
 			params: {
 				id: Joi.number().integer().min(1)
@@ -45,7 +43,6 @@ routes.push({
 });
 
 // Add user to the Developers table
-// # 'hostname/developers'
 routes.push({
 	method: 'POST',
 	path: '/developers',
