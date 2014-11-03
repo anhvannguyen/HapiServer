@@ -27,8 +27,7 @@ routes.push({
 		}		
 });
 
-// List developer by parameter id
-// # 'hostname/developers/id'
+// List developer by id parameter
 routes.push({
 	method: 'GET',
 	path: '/developers/{id}',
